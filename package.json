@@ -1,5 +1,5 @@
 {
-  "name": "egibidebot",
+  "name": "CompiBot",
   "version": "1.0.0",
   "description": "Servidor de ejemplo para el bot.",
   "main": "server.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ijaureguialzo/egibidebot.git"
+    "url": "git+https://github.com/cfgswal/CompiBot.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ijaureguialzo/egibidebot/issues"
+    "url": "https://github.com/cfgswal/CompiBot/issues"
   },
-  "homepage": "https://github.com/ijaureguialzo/egibidebot#readme",
+  "homepage": "https://github.com/cfgswal/CompiBot#readme",
   "dependencies": {
     "express": "^4.14.0"
   }
