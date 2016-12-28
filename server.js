@@ -28,7 +28,7 @@ app.use(express.static(__dirname + "/public"));
 */
 
 app.get("/prueba", function (req,res){
-var req = req;
+var requ = req;
 var vars;
 var temp_c;
 
