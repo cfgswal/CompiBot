@@ -26,11 +26,11 @@ app.use(express.static(__dirname + "/public"));
 
     [{"text":"Faltan 59 días..."}]
 */
+
+
+function prueba(){
 var vars;
 var temp_c;
-
-function prueba(temp_c){
-
   $.ajax({
    type: "GET",
    url: "http://api.openweathermap.org/data/2.5/weather?q=Vitoria-Gasteiz,ES&APPID=b5303770f9332f0ebae245982ef1e1a4",
@@ -45,9 +45,9 @@ function prueba(temp_c){
 };
 
 app.get("/prueba", function(req,res){ 
-    var temp_c= req;
-    prueba(temp_c);
-res.json(temp_c);
+    
+    var p= prueba();
+res.json(p);
 });
 
 app.get("/plazo/:fecha", function (req, res) {
