@@ -27,7 +27,21 @@ app.use(express.static(__dirname + "/public"));
     [{"text":"Faltan 59 días..."}]
 */
  
+app.get("/tiempo",function(res) {
+   type: "GET",
+   url: "http://api.openweathermap.org/data/2.5/weather?q=Vitoria-Gasteiz,ES&APPID=b5303770f9332f0ebae245982ef1e1a4",
+   dataType: "json",
 
+   success: function (data) {
+     var vars = data.main;
+      var temp_c = vars.temp - 273.15;
+      
+   },
+   error: function (jqXHR, textStatus, errorThrown) {
+      alert(errorThrown);
+   }
+   res.json(temp_c);
+});
 
 
 app.get("/plazo/:fecha", function (req, res) {
