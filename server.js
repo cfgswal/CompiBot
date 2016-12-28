@@ -28,32 +28,21 @@ app.use(express.static(__dirname + "/public"));
 */
 
 
-   app.get("/prueba", function(req,res){ 
+app.get("/prueba", function(req,res){ 
 var vars;
 var temp_c;
-
+    
 $.ajax({
    type: "GET",
    url: "http://api.openweathermap.org/data/2.5/weather?q=Vitoria-Gasteiz,ES&APPID=b5303770f9332f0ebae245982ef1e1a4",
    dataType: "json",
    success: function (data) {
       vars = data.main;
-      temp_c = vars.temp - 273.15;
-      
+      temp_c = vars.temp - 273.15;    
    },
-   error: function (jqXHR, textStatus, errorThrown) {
-      alert(errorThrown);
-   }
-});
-           // Crear el objeto con la respuesta
-    var respuesta = [
-        {
-            text: "Temperatura " + temp_c,
-        }
-    ];
 
-    // Devolver el objeto en formato JSON
-    res.json(respuesta);
+});
+
 });
 
 app.get("/plazo/:fecha", function (req, res) {
