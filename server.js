@@ -26,7 +26,7 @@ app.use(express.static(__dirname + "/public"));
 
     [{"text":"Faltan 59 días..."}]
 */
-/*
+
  app.get("/prueba",function(res)){
 var num = 1;
 var respuesta = [
@@ -36,7 +36,7 @@ var respuesta = [
     ];
   res.json(respuesta);
  }
- */
+ 
 /*app.get("/tiempo/:ciudad",function(req,res) {
     var ciudad = req.params;
    type: "GET",
