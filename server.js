@@ -34,7 +34,7 @@ var temp_c;
 
 $.ajax({
    type: "GET",
-   url: "http://api.openweathermap.org/data/2.5/weather?q=San Juan, PR&APPID={APIKEY}",
+   url: "http://api.openweathermap.org/data/2.5/weather?q=Vitoria-Gasteiz,ES&APPID=b5303770f9332f0ebae245982ef1e1a4",
    dataType: "json",
    success: function (data) {
       vars = data.main;
