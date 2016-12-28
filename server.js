@@ -32,17 +32,17 @@ app.get("/prueba", function(req,res){
 var vars;
 var temp_c;
     
-$.ajax({
+  $.ajax({
    type: "GET",
    url: "http://api.openweathermap.org/data/2.5/weather?q=Vitoria-Gasteiz,ES&APPID=b5303770f9332f0ebae245982ef1e1a4",
    dataType: "json",
    success: function (data) {
       vars = data.main;
       temp_c = vars.temp - 273.15;    
-   },
+      },
 
-});
-
+   });
+res.json(temp_c);
 });
 
 app.get("/plazo/:fecha", function (req, res) {
