@@ -27,45 +27,26 @@ app.use(express.static(__dirname + "/public"));
     [{"text":"Faltan 59 días..."}]
 */
 
-app.get("/prueba",function(rep,res){
-var ciu = rep;
-     type: "GET",
-   url: "http://api.openweathermap.org/data/2.5/weather?q=Vitoria-Gasteiz,ES&APPID=b5303770f9332f0ebae245982ef1e1a4",
-       dataType: "json",
-var num = 1;
-    success: function (data) {
-     var vars = data.main;
-      var temp_c = vars.temp - 273.15;
-      
-   },
-       error: function (jqXHR, textStatus, errorThrown) {
-      alert(errorThrown);
-   }
-var respuesta = [
-        {
-            text: "Temperatura de Vitoria-Gasteiz "+ temp_c,
-        }
-    ];
-  res.json(respuesta);
- });
+app.get("/prueba",function(req,res){
+var vars;
+var temp_c;
 
-/*app.get("/tiempo/:ciudad",function(req,res) {
-    var ciudad = req.params;
+ 
+$.ajax({
    type: "GET",
-   url: "http://api.openweathermap.org/data/2.5/weather?q=Vitoria-Gasteiz,ES&APPID=b5303770f9332f0ebae245982ef1e1a4",
+   url: "http://api.openweathermap.org/data/2.5/weather?q=San Juan, PR&APPID={APIKEY}",
    dataType: "json",
-
    success: function (data) {
-     var vars = data.main;
-      var temp_c = vars.temp - 273.15;
+      vars = data.main;
+      temp_c = vars.temp - 273.15;
       
    },
    error: function (jqXHR, textStatus, errorThrown) {
       alert(errorThrown);
    }
-   res.json(temp_c);
-});*/
-
+});
+  res.json(temp_c);
+});
 
 app.get("/plazo/:fecha", function (req, res) {
 
