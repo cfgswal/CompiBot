@@ -30,7 +30,7 @@ app.use(express.static(__dirname + "/public"));
 var num = 1;
   return num
  }
-app.get("/tiempo/:ciudad",function(req,res) {
+/*app.get("/tiempo/:ciudad",function(req,res) {
     var ciudad = req.params;
    type: "GET",
    url: "http://api.openweathermap.org/data/2.5/weather?q=Vitoria-Gasteiz,ES&APPID=b5303770f9332f0ebae245982ef1e1a4",
@@ -45,7 +45,7 @@ app.get("/tiempo/:ciudad",function(req,res) {
       alert(errorThrown);
    }
    res.json(temp_c);
-});
+});*/
 
 
 app.get("/plazo/:fecha", function (req, res) {
