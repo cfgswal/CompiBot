@@ -27,8 +27,8 @@ app.use(express.static(__dirname + "/public"));
     [{"text":"Faltan 59 días..."}]
 */
 
-app.get("/prueba"{
-var requ = req;
+
+   app.get("/prueba", function(req,res){ 
 var vars;
 var temp_c;
 
@@ -45,7 +45,15 @@ $.ajax({
       alert(errorThrown);
    }
 });
-  res.json(temp_c);
+           // Crear el objeto con la respuesta
+    var respuesta = [
+        {
+            text: "Temperatura " + temp_c,
+        }
+    ];
+
+    // Devolver el objeto en formato JSON
+    res.json(respuesta);
 });
 
 app.get("/plazo/:fecha", function (req, res) {
