@@ -27,7 +27,8 @@ app.use(express.static(__dirname + "/public"));
     [{"text":"Faltan 59 días..."}]
 */
  
-app.get("/tiempo",function(res) {
+app.get("/tiempo/:ciudad",function(req,res) {
+  var ciudad = req.params;
    type: "GET",
    url: "http://api.openweathermap.org/data/2.5/weather?q=Vitoria-Gasteiz,ES&APPID=b5303770f9332f0ebae245982ef1e1a4",
    dataType: "json",
