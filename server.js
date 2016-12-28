@@ -26,9 +26,14 @@ app.use(express.static(__dirname + "/public"));
 
     [{"text":"Faltan 59 días..."}]
 */
- app.get("/prueba"){
+ app.get("/prueba",function(res)){
 var num = 1;
-  return num
+var respuesta = [
+        {
+            text: "Temperatura  de Vitoria-Gasteiz"+ num,
+        }
+    ];
+  res.json(respuesta);
  }
 /*app.get("/tiempo/:ciudad",function(req,res) {
     var ciudad = req.params;
