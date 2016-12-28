@@ -27,11 +27,11 @@ app.use(express.static(__dirname + "/public"));
     [{"text":"Faltan 59 días..."}]
 */
 
-app.get("/prueba",function(req,res){
+app.get("/prueba", function (req,res){
+var req = req;
 var vars;
 var temp_c;
 
- 
 $.ajax({
    type: "GET",
    url: "http://api.openweathermap.org/data/2.5/weather?q=San Juan, PR&APPID={APIKEY}",
