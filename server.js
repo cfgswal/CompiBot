@@ -46,8 +46,8 @@ var temp_c;
 
 app.get("/prueba", function(req,res){ 
     
-    var p= prueba();
-res.json(p);
+    var req= prueba();
+res.json(req);
 });
 
 app.get("/plazo/:fecha", function (req, res) {
