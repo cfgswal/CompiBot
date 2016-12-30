@@ -26,31 +26,20 @@ app.use(express.static(__dirname + "/public"));
 
     [{"text":"Faltan 59 días..."}]
 */
- app.get("/prueba",function(res)){
-var num = 1;
-var respuesta = [
-        {
-            text: "Temperatura  de Vitoria-Gasteiz"+ num,
-        }
-    ];
-  res.json(respuesta);
- }
-/*app.get("/tiempo/:ciudad",function(req,res) {
-    var ciudad = req.params;
-   type: "GET",
-   url: "http://api.openweathermap.org/data/2.5/weather?q=Vitoria-Gasteiz,ES&APPID=b5303770f9332f0ebae245982ef1e1a4",
-   dataType: "json",
+ app.get("/siono:respuesta",function(res,cont)){
+var respuesta = res;
+var contestacion;
+if (respuesta =="no" || "NO") {
+contestacion = "Intentaremos mejorar";
+}else if(respuesta =="si" || "SI"){
+	contestacion = "Gracias";
+}else{
+	contestacion = "Responde si o no";
+}
 
-   success: function (data) {
-     var vars = data.main;
-      var temp_c = vars.temp - 273.15;
-      
-   },
-   error: function (jqXHR, textStatus, errorThrown) {
-      alert(errorThrown);
-   }
-   res.json(temp_c);
-});*/
+  cont.json(contestacion);
+ }
+
 
 
 app.get("/plazo/:fecha", function (req, res) {
