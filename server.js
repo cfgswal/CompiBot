@@ -23,13 +23,20 @@ app.use(express.static(__dirname + "/public"));
 */
 
 app.get("/temp", function (req, res) {
-var temp = 0
-
-    getclima()
+request('http://api.geonames.org/findNearByWeatherJSON?lat=42.846718&lng=-2.671635&username=eduardo_gpg',
+        function(error, response, data){
+            if(!error){         
+                var response = JSON.parse(data)
+                var temperatura = response.weatherObservation.temperature
+                
+            }else{
+            temp = 15//temperatura por defecto
+            }               
+        })
     // Crear el objeto con la respuesta
     var respuesta = [
         {
-            text: "Nos encontramos a  " + temp + " grados...",
+            text: "Nos encontramos a  " + temperatura + " grados...",
         }
     ];
 
