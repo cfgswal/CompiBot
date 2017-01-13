@@ -23,11 +23,12 @@ app.use(express.static(__dirname + "/public"));
 */
 
 app.get("/temp", function (req, res) {
-request('http://api.geonames.org/findNearByWeatherJSON?lat=42.846718&lng=-2.671635&username=eduardo_gpg',
+    var temperatura = 0
+    request('http://api.geonames.org/findNearByWeatherJSON?lat=42.846718&lng=-2.671635&username=eduardo_gpg',
         function(error, response, data){
             if(!error){         
                 var response = JSON.parse(data)
-                var temperatura = response.weatherObservation.temperature
+                temperatura = response.weatherObservation.temperature
                 
             }else{
             temp = 15//temperatura por defecto
@@ -43,33 +44,6 @@ request('http://api.geonames.org/findNearByWeatherJSON?lat=42.846718&lng=-2.6716
     // Devolver el objeto en formato JSON
     res.json(respuesta);
 });
-
-
-function getmensageclima(temperatura){
-    if(temperatura < 15){
-        return "Nos encontramos a "+temperatura+" grados. Abrigate que hace frio"
-       }else if(temperatura < 30 && temperatura > 15){
-       return "Nos encontramos a "+temperatura+" grados. Ponte una chaqueta que refresca."
-       }else{
-           return "Nos encontramos a "+temperatura+" grados. Tomate una cañita que hace calor."
-       }
-
-}
-
-function getclima(){
-    request('http://api.geonames.org/findNearByWeatherJSON?lat=42.846718&lng=-2.671635&username=eduardo_gpg',
-        function(error, response, data){
-            if(!error){         
-                var response = JSON.parse(data)
-                var temperatura = response.weatherObservation.temperature
-                temp=temperatura
-            }else{
-            temp = 15//temperatura por defecto
-            }               
-        })
-
-}
-
 
 
 app.get("/plazo/:fecha", function (req, res) {
