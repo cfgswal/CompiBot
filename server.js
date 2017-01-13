@@ -15,31 +15,53 @@ app.use(express.static(__dirname + "/public"));
 
 /*
     GET /plazo/:fecha
-
     Ruta que calcula el número de días que faltan para una fecha
-
     Si el servidor se está ejecutando localmente:
-
     http://localhost:3000/plazo/2017-01-31T23:59:59.000Z
-
     Devuelve un objeto JSON con el formato:
-
     [{"text":"Faltan 59 días..."}]
 */
 
- app.get("/siono:respuesta",function(res,cont)){
-var respuesta = res;
-var contestacion;
-if (respuesta =="no" || "NO") {
-contestacion = "Intentaremos mejorar";
-}else if(respuesta =="si" || "SI"){
-	contestacion = "Gracias";
-}else{
-	contestacion = "Responde si o no";
+app.get("/temp", function (req, res) {
+var temp = 0
+
+    getclima()
+    // Crear el objeto con la respuesta
+    var respuesta = [
+        {
+            text: "Nos encontramos a  " + temp + " grados...",
+        }
+    ];
+
+    // Devolver el objeto en formato JSON
+    res.json(respuesta);
+});
+
+
+function getmensageclima(temperatura){
+    if(temperatura < 15){
+        return "Nos encontramos a "+temperatura+" grados. Abrigate que hace frio"
+       }else if(temperatura < 30 && temperatura > 15){
+       return "Nos encontramos a "+temperatura+" grados. Ponte una chaqueta que refresca."
+       }else{
+           return "Nos encontramos a "+temperatura+" grados. Tomate una cañita que hace calor."
+       }
+
 }
 
-  cont.json(contestacion);
- }
+function getclima(){
+    request('http://api.geonames.org/findNearByWeatherJSON?lat=42.846718&lng=-2.671635&username=eduardo_gpg',
+        function(error, response, data){
+            if(!error){         
+                var response = JSON.parse(data)
+                var temperatura = response.weatherObservation.temperature
+                temp=temperatura
+            }else{
+            temp = 15//temperatura por defecto
+            }               
+        })
+
+}
 
 
 
