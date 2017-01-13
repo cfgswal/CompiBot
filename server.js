@@ -31,7 +31,7 @@ app.get("/temp", function (req, res) {
                 temperatura = response.weatherObservation.temperature
                 
             }else{
-            temp = 15//temperatura por defecto
+            temperatura = 15//temperatura por defecto
             }               
         })
     // Crear el objeto con la respuesta
