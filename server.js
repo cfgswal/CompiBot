@@ -48,7 +48,7 @@ app.get("/temp", function (req, res) {
             res.json(respuesta);
 
         });
- 
+   });
 app.get("/plazo/:fecha", function (req, res) {
 
     // Obtener la fecha que llega en la URL
