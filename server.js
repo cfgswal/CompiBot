@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 // Importamos el framework Express y lo inicializamos
 var express = require("express");
 var app = express();
-var request = require('request');
+var request = require("request");
 
 // El contenido de la carpeta public se muestra en la raíz del servidor
 app.use(express.static(__dirname + "/public"));
