@@ -51,6 +51,7 @@ app.get("/temp", function (req, res) {
 
         });
 
+});
 
 app.get("/plazo/:fecha", function (req, res) {
 
