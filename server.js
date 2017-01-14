@@ -13,6 +13,7 @@ var app = express();
 // El contenido de la carpeta public se muestra en la raíz del servidor
 app.use(express.static(__dirname + "/public"));
 
+
 /*
     GET /plazo/:fecha
     Ruta que calcula el número de días que faltan para una fecha
@@ -21,6 +22,35 @@ app.use(express.static(__dirname + "/public"));
     Devuelve un objeto JSON con el formato:
     [{"text":"Faltan 59 días..."}]
 */
+
+var request = require('request');
+
+app.get("/temp", function (req, res) {
+
+    var temperatura = 0;
+
+    request('http://api.geonames.org/findNearByWeatherJSON?lat=42.846718&lng=-2.671635&username=eduardo_gpg',
+        function (error, response, data) {
+            if (!error) {
+                var response = JSON.parse(data);
+                temperatura = response.weatherObservation.temperature;
+                console.log(response.weatherObservation);
+            } else {
+                temperatura = 15; //temperatura por defecto
+            }
+
+            // Crear el objeto con la respuesta
+            var respuesta = [
+                {
+                    text: "Nos encontramos a " + temperatura + " grados de temperatura",
+                }
+            ];
+
+            // Devolver el objeto en formato JSON
+            res.json(respuesta);
+
+        });
+
 
 app.get("/plazo/:fecha", function (req, res) {
 
