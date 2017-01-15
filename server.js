@@ -24,7 +24,7 @@ app.use(express.static(__dirname + "/public"));
     [{"text":"Faltan 59 días..."}]
 */
 
-var request = require("request");
+var request = require('request');
 
 app.get("/temp", function (req, res) {
 
