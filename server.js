@@ -59,22 +59,38 @@ app.get("/temp", function (req, res) {
 
     var temperatura = 0;
 
-    request('http://api.geonames.org/findNearByWeatherJSON?lat=42.846718&lng=-2.671635&username=eduardo_gpg',
+    request('http://api.openweathermap.org/data/2.5/weather?lat=42.877976842874084&lon=-2.675943374633789&appid=5ce44fc1946c2700d5e6c648ccf1d3d7',
         function (error, response, data) {
             if (!error) {
                 var response = JSON.parse(data);
-                temperatura = response.weatherObservation.temperature;
-                console.log(response.weatherObservation);
+                temperatura = response.main.temperature;
+                console.log(response.main);
             } else {
                 temperatura = 15; //temperatura por defecto
             }
-
-            // Crear el objeto con la respuesta
-            var respuesta = [
+            if (temperatura < 10) {
+                var respuesta = [
                 {
-                    text: "Nos encontramos a " + temperatura + " grados de temperatura",
+                    text: "Nos encontramos a " + temperatura + " grados de temperatura,hace un frio que pela",
                 }
             ];
+            }else if (temperatura >10 && temperatura < 20){
+
+                var respuesta = [
+                {
+                    text: "Nos encontramos a " + temperatura + " grados de temperatura, abrigate para no pasar frio ",
+                }
+            ];
+            }else {
+                var respuesta = [
+                {
+                    text: "Nos encontramos a " + temperatura + " grados de temperatura, tomate una birrita que hace buen dia",
+                }
+            ];
+
+            }
+           
+            
 
             // Devolver el objeto en formato JSON
             res.json(respuesta);
