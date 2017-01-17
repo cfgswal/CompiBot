@@ -1,10 +1,11 @@
 {
-  "name": "CompiBot",
+  "name": "package",
   "version": "1.0.0",
-  "description": "Servidor de ejemplo para el bot.",
+  "description": "Este es un ejemplo sobre cómo crear un servicio basado en Node.js que proporcione contenido dinámico a un bot basado en [Chatfuel](https://chatfuel.com/).",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
