@@ -65,26 +65,27 @@ app.get("/temp", function (req, res) {
                 var response = JSON.parse(data);
                 temperatura = response.main.temp;
                 console.log(response.main);
+                var celsius=5/9(temperatura-32);
             } else {
-                temperatura = 15; //temperatura por defecto
+                celsius = 15; //temperatura por defecto
             }
-            if (temperatura < 10) {
+            if (celsius < 10) {
                 var respuesta = [
                 {
-                    text: "Nos encontramos a " + temperatura + " grados de temperatura, hace un frio que pela",
+                    text: "Nos encontramos a " + celsius + " grados de temperatura, hace un frio que pela",
                 }
             ];
-            }else if (temperatura >10 && temperatura < 20){
+            }else if (celsius >10 && celsius < 20){
 
                 var respuesta = [
                 {
-                    text: "Nos encontramos a " + temperatura + " grados de temperatura, abrigate para no pasar frio ",
+                    text: "Nos encontramos a " + celsius + " grados de temperatura, abrigate para no pasar frio ",
                 }
             ];
             }else {
                 var respuesta = [
                 {
-                    text: "Nos encontramos a " + temperatura + " grados de temperatura, tomate una birrita que hace buena temperatura",
+                    text: "Nos encontramos a " + celsius + " grados de temperatura, tomate una birrita que hace buena temperatura",
                 }
             ];
 
