@@ -63,7 +63,7 @@ app.get("/temp", function (req, res) {
         function (error, response, data) {
             if (!error) {
                 var response = JSON.parse(data);
-                temperatura = response.main.temperature;
+                temperatura = response.main.temperature.value;
                 console.log(response.main);
             } else {
                 temperatura = 15; //temperatura por defecto
