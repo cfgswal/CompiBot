@@ -66,6 +66,7 @@ app.get("/temp", function (req, res) {
                 temperatura = response.main.temp;
                 console.log(response.main);
                 var celsius=(temperatura-273);
+                Math.floor(celsius);
             } else {
                 celsius = 15; //temperatura por defecto
             }
